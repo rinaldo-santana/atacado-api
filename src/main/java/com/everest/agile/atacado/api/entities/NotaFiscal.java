@@ -13,6 +13,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
 import com.everest.agile.atacado.api.entities.pk.NotaFiscalId;
 
@@ -25,9 +27,11 @@ public class NotaFiscal implements Serializable {
 	@EmbeddedId
 	private NotaFiscalId id;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "nfe_datamovimento")
 	private Date dataMovimento;
 	
+	@Temporal(TemporalType.DATE)
 	@Column(name = "nfe_dataemissao")
 	private Date dataEmissao;
 

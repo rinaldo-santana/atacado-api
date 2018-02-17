@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class AtacadoApiApplication {
 
-	@Value("${ambiente.nome}")
+	@Value("${app.ambiente.nome}")
 	private String nomeAmbiente;
 	
 	public static void main(String[] args) {

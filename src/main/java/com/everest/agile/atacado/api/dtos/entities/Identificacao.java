@@ -1,4 +1,4 @@
-package com.everest.agile.atacado.api.dtos.notafiscal;
+package com.everest.agile.atacado.api.dtos.entities;
 
 import java.util.Date;
 
@@ -10,7 +10,6 @@ public class Identificacao {
 	private Long numero;
 	private Date dataEmissao;
 	private Date dataMovimento;
-	
 	
 	public Identificacao() {
 

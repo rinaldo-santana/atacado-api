@@ -27,13 +27,13 @@ public class NotaFiscalItem implements Serializable {
 	@Embedded
 	private NotaFiscalItemId  id;
 
-	@Id
+	@Id	
 	@ManyToOne
 	@JoinColumn(name = "nfei_produto",  foreignKey =@ForeignKey(name = "NFEITENS_PRODUTOS_FK"))
 	private Produtos produto;		
 
 	@Id	
-	@Column(name = "nfei_item", unique = true)
+	@Column(name = "nfei_item")
 	private Integer item;
 
 	@OneToOne(fetch = FetchType.LAZY)

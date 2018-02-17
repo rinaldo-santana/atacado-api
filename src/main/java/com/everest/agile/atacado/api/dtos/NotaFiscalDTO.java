@@ -1,12 +1,12 @@
 package com.everest.agile.atacado.api.dtos;
 
 import java.util.List;
+import com.everest.agile.atacado.api.dtos.entities.Destinatario;
+import com.everest.agile.atacado.api.dtos.entities.Detalhe;
+import com.everest.agile.atacado.api.dtos.entities.Emitente;
+import com.everest.agile.atacado.api.dtos.entities.Identificacao;
+import com.everest.agile.atacado.api.dtos.entities.Total;
 
-import com.everest.agile.atacado.api.dtos.notafiscal.Destinatario;
-import com.everest.agile.atacado.api.dtos.notafiscal.Detalhe;
-import com.everest.agile.atacado.api.dtos.notafiscal.Emitente;
-import com.everest.agile.atacado.api.dtos.notafiscal.Identificacao;
-import com.everest.agile.atacado.api.dtos.notafiscal.Total;
 
 public class NotaFiscalDTO {
 

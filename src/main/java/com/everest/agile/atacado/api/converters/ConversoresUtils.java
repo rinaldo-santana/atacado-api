@@ -4,16 +4,16 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.everest.agile.atacado.api.dtos.NotaFiscalDTO;
-import com.everest.agile.atacado.api.dtos.notafiscal.Destinatario;
-import com.everest.agile.atacado.api.dtos.notafiscal.Detalhe;
-import com.everest.agile.atacado.api.dtos.notafiscal.Emitente;
-import com.everest.agile.atacado.api.dtos.notafiscal.Endereco;
-import com.everest.agile.atacado.api.dtos.notafiscal.Identificacao;
-import com.everest.agile.atacado.api.dtos.notafiscal.Imposto;
-import com.everest.agile.atacado.api.dtos.notafiscal.Ipi;
-import com.everest.agile.atacado.api.dtos.notafiscal.PisCofins;
-import com.everest.agile.atacado.api.dtos.notafiscal.Produto;
-import com.everest.agile.atacado.api.dtos.notafiscal.Total;
+import com.everest.agile.atacado.api.dtos.entities.Destinatario;
+import com.everest.agile.atacado.api.dtos.entities.Detalhe;
+import com.everest.agile.atacado.api.dtos.entities.Emitente;
+import com.everest.agile.atacado.api.dtos.entities.Endereco;
+import com.everest.agile.atacado.api.dtos.entities.Identificacao;
+import com.everest.agile.atacado.api.dtos.entities.Imposto;
+import com.everest.agile.atacado.api.dtos.entities.Ipi;
+import com.everest.agile.atacado.api.dtos.entities.PisCofins;
+import com.everest.agile.atacado.api.dtos.entities.Produto;
+import com.everest.agile.atacado.api.dtos.entities.Total;
 import com.everest.agile.atacado.api.entities.NotaFiscal;
 
 public class ConversoresUtils {
@@ -21,8 +21,8 @@ public class ConversoresUtils {
 	/**
 	 * Converter de NotaFiscal para NotaFiscalDTO. 
 	 * 
-	 * @param notaFiscal
-	 * @return NotaFiscalDTO
+	 * @param  NotaFiscal nota
+	 * @return NotaFiscalDTO dto
 	 */
 	public static NotaFiscalDTO converteToNotaFiscalDTO(NotaFiscal nota){
 		
@@ -52,7 +52,7 @@ public class ConversoresUtils {
 		identificacao.setOperacao(nota.getOperacao().getDescricao());
 		identificacao.setDataEmissao(nota.getDataEmissao());
 		identificacao.setDataMovimento(nota.getDataEmissao());
-		
+
 		
 		Emitente emitente = new Emitente();
 		Endereco enderecoEmitente = new Endereco();
@@ -74,6 +74,49 @@ public class ConversoresUtils {
 
 		List<Detalhe> detalhes = new ArrayList<Detalhe>();
 
+		// for (NotaFiscalItem item : nota.getItems()) {
+			
+		// 	Produto produto = new Produto();			
+		// 	produto.setItem(item.getItem());
+		// 	produto.setCodigo(item.getProduto().getCodigo());
+		// 	produto.setDescricao(item.getProduto().getDescricao());
+		// 	produto.setCfop(item.getCfop());
+		// 	produto.setEan(item.getEmbalagem().getEan());
+		// 	produto.setNcm(item.getProduto().getNcm());
+		// 	produto.setUnidade(item.getEmbalagem().getUnidade().getDescricao());
+		// 	produto.setQuantidade(item.getQuantidade());
+		// 	produto.setValorUnitario(item.getValorUnitario());
+		// 	produto.setValorTotal(item.getValorTotal());
+
+		// 	Imposto imposto = new Imposto();
+		// 	Ipi ipi = new Ipi();
+		// 	ipi.setCstNaoTributado(item.getCstIPI());
+		
+		// 	imposto.setIpi(ipi);
+			
+		// 	PisCofins pis = new PisCofins();
+		// 	pis.setCst(item.getCstPIS());
+		// 	pis.setBaseCalculo(item.getBaseCalculoPIS());
+		// 	pis.setAliquota(item.getAliquotaPIS());
+		// 	pis.setValor(item.getValorPIS());
+
+		// 	imposto.setCofins(pis);
+			
+		// 	PisCofins cofins = new PisCofins();
+		// 	cofins.setCst(item.getCstCOFINS());
+		// 	cofins.setBaseCalculo(item.getBaseCalculoCOFINS());
+		// 	cofins.setAliquota(item.getAliquotaCOFINS());
+		// 	cofins.setValor(item.getValorCOFINS());
+			
+		// 	imposto.setPis(cofins);
+					
+		// 	Detalhe detalhe = new Detalhe();
+		// 	detalhe.setProduto(produto);
+		// 	detalhe.setImposto(imposto);
+			
+		// 	detalhes.add(detalhe);			
+		// }
+		
 		nota.getItems().forEach(item -> {
 
 			Produto produto = new Produto();			
@@ -120,8 +163,8 @@ public class ConversoresUtils {
 		
 		
 		Total total = new Total();
-		total.setValorBaseCalculoICMS(nota.getBaseCalculoIcms());
-		total.setValorICMS(nota.getValorIcms());
+		total.setValorBaseCalculoICMS( nota.getBaseCalculoIcms() );
+		total.setValorICMS( nota.getValorIcms() );
 		total.setValorBaseCalculoST(nota.getBaseIcmsSubstituto());
 		total.setValorST(nota.getValorIcmsSubstituto());
 		total.setValorIPI(nota.getValorIPI());
@@ -137,11 +180,11 @@ public class ConversoresUtils {
 		
 		
 		NotaFiscalDTO dto = new NotaFiscalDTO();
-		dto.setIdentificacao(identificacao);
-		dto.setEmitente(emitente);
-		dto.setDestinatario(destinatario);		
-		dto.setDetalhes(detalhes);
-		dto.setTotal(total);
+		dto.setIdentificacao( identificacao );
+		dto.setEmitente( emitente );
+		dto.setDestinatario( destinatario );		
+		dto.setDetalhes( detalhes );
+		dto.setTotal( total );
 		
 				
 		return dto;

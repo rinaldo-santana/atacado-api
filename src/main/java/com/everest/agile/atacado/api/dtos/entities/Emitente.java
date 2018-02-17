@@ -1,4 +1,4 @@
-package com.everest.agile.atacado.api.dtos.notafiscal;
+package com.everest.agile.atacado.api.dtos.entities;
 
 public class Emitente {
 	

@@ -30,9 +30,9 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/search")
+@RequestMapping("/api/atacado/")
 @CrossOrigin("*")
-public class SearchController {
+public class NotaFiscalController {
 
 	@Autowired
 	private NotaFiscalRepository notaFiscalRepository;
